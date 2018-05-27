@@ -1,0 +1,16 @@
+.Rproj.user
+.Rhistory
+.RData
+inst/doc
+vignettes/*_cache/
+R/.old/
+.old/
+analysis/data/*
+analysis/data*
+!analysis/data/docs/*.pdf
+!analysis/data/docs/*.docx
+*~
+*#
+!.gitignore
+!.Rbuildignore
+*.#server.R
