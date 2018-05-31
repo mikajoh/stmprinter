@@ -8,8 +8,8 @@ print_models(stm_models, texts, file = "printed_stm.pdf", title = NULL,
   verbose = TRUE)
 }
 \arguments{
-\item{stm_models}{A list of stm model objects from
-\code{selectModels()}.}
+\item{stm_models}{Either a list of stm model objects from
+\code{selectModels()} or the output of \code{manyTopics()}.}
 
 \item{texts}{A character vector where each entry contains the text
 of a document. Must be in the same order as the documents

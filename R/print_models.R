@@ -1,7 +1,7 @@
 #' Print a list of models to a multi-page pdf file.
 #'
-#' @param stm_models A list of stm model objects from
-#'   \code{selectModels()}.
+#' @param stm_models Either a list of stm model objects from
+#'   \code{selectModels()} or the output of \code{manyTopics()}.
 #' @param texts A character vector where each entry contains the text
 #'   of a document. Must be in the same order as the documents
 #'   object. NOTE: This is not the documents which are passed to ‘stm’
@@ -23,7 +23,20 @@ print_models <- function(stm_models,
                          title = NULL,
                          verbose = TRUE) {
 
-  on.exit(dev.off())
+  ## For model lists from the manyTopics function.
+  if ("exclusivity" %in% names(stm_models)) {
+    stm_models <- lapply(seq_along(stm_models$out), function(x) {
+      list(
+        runout = list(stm_models$out[[x]]),
+        exclusivity = list(stm_models$exclusivity[[x]]),
+        semcoh = list(stm_models$semcoh[[x]])
+      )
+    })
+  }
+  
+  on.exit({
+    if (!is.null(dev.list())) dev.off()
+  })
   
   if (verbose) {    
     total <- 1 + sum(sapply(stm_models, function(x) length(x$runout)))
@@ -58,7 +71,7 @@ print_models <- function(stm_models,
   ## We want each run on its own page.
   for (n_model in 1:length(stm_models)) {
     for (n_run in 1:length(stm_models[[n_model]]$runout)) {
-      
+
       fit <- stm_models[[n_model]]$runout[[n_run]]
       
       p_title  <- plot_title(fit, n_run)

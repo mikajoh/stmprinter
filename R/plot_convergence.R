@@ -50,7 +50,7 @@ plot_conv_all <- function(stm_models) {
     ) +
     facet_wrap(~ facet) +
     geom_line() +
-    scale_colour_manual(name = "conv", values = colors) +
+    scale_colour_manual(values = colors) +
     labs(
       x = "Convergence (iterations)",
       y = "Approximate Objective",

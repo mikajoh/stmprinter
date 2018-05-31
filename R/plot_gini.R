@@ -11,14 +11,14 @@
 plot_gini_theta <- function(fit) {
 
   gini_df <- data.frame(
-    gini = apply(fit$theta, 2, gini),
+    gini = apply(fit$theta, 2, calc_gini),
     topic = factor(1:ncol(fit$theta), rev(1:ncol(fit$theta)))
   )
 
   gini_df %>%
-    ggplot(aes(x = "gini", y = "topic")) +
+    ggplot(aes_string(x = "gini", y = "topic")) +
     geom_segment(
-      aes(yend = topic, x = 0, xend = gini),
+      aes_string(yend = "topic", x = 0, xend = "gini"),
       size = .5) +
     geom_point(size = 1) +
     scale_x_continuous(limits = c(0, .75)) +
@@ -69,7 +69,7 @@ plot_gini_docs <- function(fit) {
 #'
 #' @importFrom stats na.omit
 #'
-gini <- function(x) {
+calc_gini <- function(x) {
   x <- as.numeric(na.omit(x))
   x <- sort(x)
   n <- length(x)  
