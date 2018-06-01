@@ -14,3 +14,8 @@ analysis/data*
 !.gitignore
 !.Rbuildignore
 *.#server.R
+test.R
+printed_stm.pdf
+imm-prepared-corpus.RData
+imm-stm-models-v1.RData
+gadarian_stm_models.RData

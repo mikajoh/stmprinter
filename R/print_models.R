@@ -14,7 +14,7 @@
 #' 
 #' @importFrom progress progress_bar
 #' @importFrom gridExtra arrangeGrob grid.arrange
-#' @importFrom grDevices pdf dev.off
+#' @importFrom grDevices pdf dev.off dev.list
 #' 
 #' @export
 print_models <- function(stm_models,
