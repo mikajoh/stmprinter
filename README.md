@@ -4,9 +4,9 @@
 ## stmprinter: Print multiple [stm](http://www.structuraltopicmodel.com/) model dashboards to a pdf file for inspection
 
 [![Travis-CI Build
-Status](https://travis-ci.org/mikaelpoul/stmprinter.svg?branch=master)](https://travis-ci.org/)
+Status](https://travis-ci.org/mikajoh/stmprinter.svg?branch=master)](https://travis-ci.org/)
 [![AppVeyor Build
-Status](https://ci.appveyor.com/api/projects/status/github/mikaelpoul/stmprinter?branch=master&svg=true)](https://ci.appveyor.com/project/mikaelpoul/stmprinter)
+Status](https://ci.appveyor.com/api/projects/status/github/mikajoh/stmprinter?branch=master&svg=true)](https://ci.appveyor.com/project/mikajoh/stmprinter)
 [![MIT
 licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/mikajoh/stmprinter/master/LICENSE)
 
@@ -46,6 +46,8 @@ First let’s prep the data as usual with `stm::textProcessor()` and
 
 ``` r
 library(stm)
+#> stm v1.3.3 (2018-1-26) successfully loaded. See ?stm for help. 
+#>  Papers, resources, and other materials at structuraltopicmodel.com
 library(stmprinter)
 
 processed <- textProcessor(
@@ -91,9 +93,9 @@ models for 3 to 13 number of topics.
 set.seed(2018)
 
 stm_models <- many_models(
+  K = 3:12,
   documents = out$documents,
   vocab= out$vocab,
-  K = 3:12,
   prevalence = ~ treatment + s(pid_rep), 
   data = out$meta,
   N = 4,
@@ -132,7 +134,7 @@ code.
 text <- gadarian$open.ended.response[-c(as.integer(processed$docs.removed))][-c(as.integer(out$docs.removed))]
 ```
 
-### The `print_models()` output explained.
+<!-- ### The `print_models()` output explained. -->
 
 -----
 
