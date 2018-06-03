@@ -1,14 +1,14 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-## stmprinter: Print multiple [stm](http://www.structuraltopicmodel.com/) model dashboards to a pdf file for inspection
-
 [![Travis-CI Build
 Status](https://travis-ci.org/mikajoh/stmprinter.svg?branch=master)](https://travis-ci.org/)
 [![AppVeyor Build
 Status](https://ci.appveyor.com/api/projects/status/github/mikajoh/stmprinter?branch=master&svg=true)](https://ci.appveyor.com/project/mikajoh/stmprinter)
 [![MIT
 licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/mikajoh/stmprinter/master/LICENSE)
+
+## stmprinter: Print multiple [stm](http://www.structuraltopicmodel.com/) model dashboards to a pdf file for inspection
 
 Estimate multiple [stm](http://www.structuraltopicmodel.com/) models and
 print a dashboard for each run in separate pdf pages for inspection.
