@@ -3,7 +3,7 @@ Title: Print Multiple STM Models To A File For Inspection
 Version: 0.0.0.9000
 Authors@R: person("Mikael Poul", "Johannesson", email = "mikajoh@gmail.com", role = c("aut", "cre"))
 Description: Prints multiple stm models to a single file. Each run has its own page which provides an overview over most import words, most representative texts, topic correlations, and more.
-Depends: R (>= 3.5.0)
+Depends: R (>= 3.4.0)
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
