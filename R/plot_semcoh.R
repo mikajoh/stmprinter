@@ -15,9 +15,12 @@ get_stats <- function(stm_models) {
       model = x,
       n_topics = length(stm_mod$exc[[1]]),
       semcoh = stm_mod$semcoh,
-      exc = stm_mod$exclusivity,
+      exc = ifelse(
+        stm_mod$exclusivity == "Exclusivity not calculated for models with content covariates", 0,
+        stm_mod$exclusivity
+      ),
       run = 1:length(exc),
-      topic = rep(list(1:length(exc[[1]])), length(exc))
+      topic = rep(list(1:length(semcoh[[1]])), length(semcoh))
     )
     stat %>%
       unnest() %>%

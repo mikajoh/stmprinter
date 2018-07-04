@@ -23,11 +23,19 @@ plot_thoughts <- function(fit, texts,
                           n_sentences = 25,
                           cutoff = 190) {
 
-  frex <- fit %>%
-    labelTopics(n = 3) %>%
-    extract2("frex") %>%
-    apply(1, paste0, collapse = ", ")
   
+  if (length(fit$beta$logbeta) > 1) {
+    frex <- fit %>%
+      labelTopics(n = 3) %>%
+      extract2("topics") %>%
+      apply(1, paste, collapse = ", ")
+  } else {  
+    frex <- fit %>%
+      labelTopics(n = 3) %>%
+      extract2("frex") %>%
+      apply(1, paste, collapse = ", ")
+  }
+
   thoughts <- lapply(1:ncol(fit$theta), function(x) {
 
     thoughts_raw <-

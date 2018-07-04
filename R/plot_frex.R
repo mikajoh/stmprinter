@@ -11,10 +11,17 @@
 #' @export
 plot_frex <- function(fit, n = 15) {
 
-  frex <- fit %>%
-    labelTopics(n = n) %>%
-    extract2("frex") %>%
-    apply(1, paste, collapse = ", ")
+  if (length(fit$beta$logbeta) > 1) {
+    frex <- fit %>%
+      labelTopics(n = n) %>%
+      extract2("topics") %>%
+      apply(1, paste, collapse = ", ")
+  } else {  
+    frex <- fit %>%
+      labelTopics(n = n) %>%
+      extract2("frex") %>%
+      apply(1, paste, collapse = ", ")
+  }
 
   frex_df <- data.frame(
     x = 0,
