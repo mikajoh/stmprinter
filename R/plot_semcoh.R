@@ -10,21 +10,20 @@
 #' @export
 get_stats <- function(stm_models) {
   stats <- lapply(seq_along(stm_models), function(x) {
-    stm_mod <- stm_models[[x]]    
+    stm_mod <- stm_models[[x]]
     stat <- data_frame(
       model = x,
       n_topics = length(stm_mod$exc[[1]]),
       semcoh = stm_mod$semcoh,
       exc = ifelse(
-        stm_mod$exclusivity == "Exclusivity not calculated for models with content covariates", 0,
-        stm_mod$exclusivity
-      ),
+          sapply(stm_mod$exclusivity, is.character),
+          0, stm_mod$exclusivity),
       run = 1:length(exc),
       topic = rep(list(1:length(semcoh[[1]])), length(semcoh))
     )
     stat %>%
       unnest() %>%
-      mutate(run = factor(run))    
+      mutate(run = factor(run))
   })
   do.call("rbind", stats)
 }

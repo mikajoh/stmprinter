@@ -5,7 +5,7 @@
 #'   theme theme_bw element_rect element_blank element_text
 #'   geom_segment
 #' @importFrom tidyr gather
-#' @importFrom dplyr group_by summarize n row_number
+#' @importFrom dplyr group_by summarize n row_number arrange desc
 #' @importFrom stats sd 
 #'
 #' @param fit An ‘STM’ model object.
@@ -17,7 +17,8 @@ plot_prev <- function(fit) {
     fit %>%
     extract2("theta") %>%
     as.data.frame() %>%
-    gather(topic, prev) %>%
+    gather(topic, prev, factor_key = TRUE) %>%
+    arrange(desc(topic)) %>%
     group_by(topic) %>%
     summarize(
       est = mean(prev),
