@@ -7,8 +7,8 @@ parallel}
 \usage{
 many_models(K, documents, vocab, prevalence = NULL, content = NULL,
   data = NULL, max.em.its = 100, init.type = "LDA", emtol = 1e-05,
-  seed = NULL, runs = 50, frexw = 0.7, net.max.em.its = 2, M = 10,
-  N = NULL, to.disk = FALSE, verbose = TRUE,
+  seed = NULL, runs = 50, frexw = 0.7, net.max.em.its = 2,
+  M = 10, N = NULL, to.disk = FALSE, verbose = TRUE,
   cores = parallel::detectCores(), ...)
 }
 \arguments{
